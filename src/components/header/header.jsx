@@ -1,7 +1,6 @@
 import React from 'react';
 import './header.scss';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+
 
 const Header = () => {
     return (
@@ -9,15 +8,6 @@ const Header = () => {
             <div className="headerContainer">
                 <div className='logo-container'>
                     <p className='logo'>Film</p><p className='logo-second'>Harbor</p>
-                </div>
-                <div className="search-bar">
-                    <input
-                        type="text"
-                        placeholder="Wyszukaj..."
-                    />
-                    <button><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
-
-
                 </div>
                 <nav className='navigation'>
                     <ul>

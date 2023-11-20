@@ -1,22 +1,23 @@
-import React, from "react";
+import React from "react";
 import './resultsComponent.scss'
-const ResultsComponent = ({searchResults}) => {
+const ResultsComponent = ({ searchResults }) => {
+    const filteredResults = searchResults.filter(item => item.poster_path);
+
     return (
         <section>
             <div className="data-list">
-                {searchResults && searchResults.length > 0 ? (
-                    searchResults.map(item => (
+                {filteredResults && filteredResults.length > 0 ? (
+                    filteredResults.map(item => (
                         <div key={item.id} className="data-item">
-                            {item.image_url && (
-                                <img src={item.image_url} alt={item.name}/>
+                            {item.poster_path && (
+                                <img
+                                    src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                                    alt={item.title}
+                                />
                             )}
-                            {item.image_url && (
-                                <>
-                                    <p className='film-introduce'>{item.name}</p>
-                                    <p className='film-introduce'>Year: {item.year}</p>
-                                    <p className='film-introduce'>Type: {item.type}</p>
-                                </>
-                            )}
+                            <p className='film-introduce'>{item.title}</p>
+                            <p className='film-introduce'>Year: {item.release_date}</p>
+                            <p className='film-introduce'>Type: {item.media_type}</p>
                         </div>
                     ))
                 ) : (

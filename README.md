@@ -10,7 +10,6 @@ Aplikacja jest oparta o bibliotekę React.
 autor:CodeVoyageer
 
 
-
 GB:
 
 The FilmHarbor application allows users to browse available movies, online series, and television shows, both existing and planned. 

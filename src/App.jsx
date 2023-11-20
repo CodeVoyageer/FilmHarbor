@@ -18,6 +18,7 @@ function App() {
             <Header/>
             <SearchInput onSearchResults={handleSearchResults}/>
             <ResultsComponent searchResults={searchResults}/>
+
         </div>
     );
 }

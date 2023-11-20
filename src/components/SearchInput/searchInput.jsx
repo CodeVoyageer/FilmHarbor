@@ -4,21 +4,25 @@ import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 import './searchInput.scss'
 const SearchInput = ({onSearchResults}) => {
     const [searchTerm, setSearchTerm] = useState('');
-    const handleSearch = () => {
-    let url = `https://api.watchmode.com/v1/autocomplete-search/?apiKey=6h0fDZd8HKQ5QfYQOIscltGddN1FjhSxe72qb5Wh&search_field=name&search_value=${searchTerm}`;
-        if (searchTerm.trim() !== ''){
-            fetch(url, { method: 'GET' })
-                .then((res) => res.json())
-                .then((json) => {
-                    if (typeof onSearchResults === 'function') {
-                        onSearchResults(json.results);
-                    }
-                })
-                .catch((error) => {
-                    console.error('Błąd podczas pobierania danych:', error);
-                });
-        }else{
-            onSearchResults([]);
+    const handleSearch = async () => {
+        const url = `https://api.themoviedb.org/3/search/movie?query=${searchTerm}&include_adult=false&language=en-US&page=1`;
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMmZjZTJhYzhmMTkzNWI4M2U0OGFjM2Y4NmE4Zjc1YyIsInN1YiI6IjY1NTk1MzQ5Y2EwZTE3MDBhZGJmYjc5YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.H3Dca6WGQQvXshw7UiA9Ubpirz1e6piIp8QVZHKmWKY`
+            }
+        };
+
+        try {
+            const response = await fetch(url, options);
+            const result = await response.json();
+
+            if (typeof onSearchResults === 'function') {
+                onSearchResults(result.results);
+            }
+        } catch (error) {
+            console.error('Błąd podczas pobierania danych:', error);
         }
     }
     return (

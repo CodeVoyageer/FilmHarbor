@@ -1,0 +1,22 @@
+.popular-movies-heading{
+  color:gold;
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  padding-top: 30px;
+
+}
+.popular-movies-section{
+background-color: #414141;
+  
+}
+
+.popular-movies-items{
+  display: flex;
+}
+
+.popular-movies-container{
+  display:flex;
+  flex-wrap: wrap;
+}

@@ -5,12 +5,25 @@
 .film-introduce{
   display: flex;
   flex-wrap: wrap;
+  color: white;
+
 }
 .data-item{
   width: 200px;
   height: 400px;
+  margin:10px 0 15px 37px;
+  border:2px solid gold;
+  border-radius: 10px;
   img{
-    width: 200px;
-    height: 400px;
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
   }
+}
+.data-item:hover{
+  box-shadow: 0 0 15px -2px gold;
+}
+.search-results-section{
+  background-color: #414141;
+  width: 100%;
 }

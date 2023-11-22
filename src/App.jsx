@@ -4,6 +4,8 @@ import './App.css'
 import Header from "./components/header/header.jsx";
 import ResultsComponent from "./components/mainSection1/resultsComponent.jsx";
 import SearchInput from "./components/SearchInput/searchInput.jsx";
+import RandomMoviesComponent from "./components/RandomMovies/randomMovies.jsx";
+
 
 function App() {
     const [searchResults, setSearchResults] = useState([]);
@@ -18,7 +20,7 @@ function App() {
             <Header/>
             <SearchInput onSearchResults={handleSearchResults}/>
             <ResultsComponent searchResults={searchResults}/>
-
+            <RandomMoviesComponent/>
         </div>
     );
 }

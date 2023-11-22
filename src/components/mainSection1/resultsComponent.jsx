@@ -4,9 +4,9 @@ const ResultsComponent = ({ searchResults }) => {
     const filteredResults = searchResults.filter(item => item.poster_path);
 
     return (
-        <section>
+        <section className='search-results-section'>
             <div className="data-list">
-                {filteredResults && filteredResults.length > 0 ? (
+                {filteredResults && filteredResults.length > 0 &&
                     filteredResults.map(item => (
                         <div key={item.id} className="data-item">
                             {item.poster_path && (
@@ -15,17 +15,16 @@ const ResultsComponent = ({ searchResults }) => {
                                     alt={item.title}
                                 />
                             )}
-                            <p className='film-introduce'>{item.title}</p>
-                            <p className='film-introduce'>Year: {item.release_date}</p>
-                            <p className='film-introduce'>Type: {item.media_type}</p>
+                            <p className='film-introduce'><span className='film-introduce_info'>Title:</span>{item.title}</p>
+                            <p className='film-introduce'><span className='film-introduce_info'>Year:</span> {item.release_date}</p>
+                            <p className='film-introduce'><span className='film-introduce_info'>Rating:</span>{item.vote_average}</p>
                         </div>
                     ))
-                ) : (
-                    <p>No results found</p>
-                )}
+                }
             </div>
         </section>
     );
 };
+
 
 export default ResultsComponent

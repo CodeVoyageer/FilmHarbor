@@ -15,9 +15,12 @@ const ResultsComponent = ({ searchResults }) => {
                                     alt={item.title}
                                 />
                             )}
+                            <div className='film-introduce-container'>
                             <p className='film-introduce'><span className='film-introduce_info'>Title:</span>{item.title}</p>
                             <p className='film-introduce'><span className='film-introduce_info'>Year:</span> {item.release_date}</p>
                             <p className='film-introduce'><span className='film-introduce_info'>Rating:</span>{item.vote_average}</p>
+                                <p className='film-introduce'><span className='film-introduce_info'> Overview: </span> {item.overview}</p>
+                            </div>
                         </div>
                     ))
                 }

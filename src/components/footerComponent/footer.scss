@@ -18,4 +18,16 @@
 }
 .footerDescription{
  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footerDescription-section{
+display: flex;
+justify-content: center;
+  align-items: center;
+  padding-right: 10px;
+a{
+  margin-left: 15px;
+}
 }

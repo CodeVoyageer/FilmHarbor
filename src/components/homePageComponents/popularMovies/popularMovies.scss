@@ -44,9 +44,9 @@ background-color: #414141;
 }
 .film-introduce-container{
   position: absolute;
-  top: 0;
+  top: -10px;
   left: 0;
-  width: 100%;
+  width: auto;
   height: 100%;
   display: none;
   background: rgba(0, 0, 0, 0.65);
@@ -60,4 +60,47 @@ background-color: #414141;
 
 .film-introduce {
   margin: 0 10px 0 0;
+}
+
+.custom-carousel {
+  background-color: #414141;
+  border-radius: 5px;
+  width: 97%;
+
+}
+
+.custom-carousel .carousel .slide {
+  background-color: #414141;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.custom-carousel .carousel .slide img {
+  max-width: 100%;
+  height: auto;
+}
+
+.custom-carousel .carousel .slide .film-introduce-container {
+  margin-top: 10px;
+}
+
+.custom-carousel .carousel .slide .film-introduce {
+  margin-bottom: 5px;
+}
+
+.custom-carousel .carousel .slide .film-introduce_info {
+  font-weight: bold;
+}
+
+.carousel .control-arrow, .carousel.carousel-slider .control-arrow{
+  opacity: 2;
+}
+.carousel .slider-wrapper{
+
+}
+.custom-carousel .carousel .slide {
+  background-color: #414141;
+  border-radius: 5px;
+  padding: 10px;
+  transform: translateX(0%);
 }

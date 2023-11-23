@@ -1,5 +1,6 @@
 import React from 'react';
 import './header.scss';
+import {Link} from "react-router-dom";
 
 
 const Header = () => {
@@ -11,8 +12,8 @@ const Header = () => {
                 </div>
                 <nav className='navigation'>
                     <ul>
-                        <li><a href='/FilmHarborApp/src/pages/Home.jsx'>Home</a></li>
-                        <li><a href='/Movies.jsx'>Movies</a></li>
+                        <li><Link to='/'>Home</Link></li>
+                        <li><Link to='/Movies'>Movies</Link></li>
                         <li><a>Series</a></li>
                         <li><a>Mylist</a></li>
                         {/*<li>MyCalendar</li>*/}

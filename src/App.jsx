@@ -4,8 +4,8 @@ import './App.css'
 import Header from "./components/header/header.jsx";
 import ResultsComponent from "./components/resultsSection/resultsComponent.jsx";
 import SearchInput from "./components/SearchInput/searchInput.jsx";
-import PopularMoviesComponent from "./components/RandomMovies/popularMovies.jsx";
-import FooterComponent from "./components/footerComponent/footer.jsx";
+import PopularMoviesComponent from "./components/popularMovies/popularMovies.jsx";
+
 
 
 function App() {
@@ -22,7 +22,6 @@ function App() {
             <SearchInput onSearchResults={handleSearchResults}/>
             <ResultsComponent searchResults={searchResults}/>
             <PopularMoviesComponent/>
-            <FooterComponent/>
         </div>
     );
 }

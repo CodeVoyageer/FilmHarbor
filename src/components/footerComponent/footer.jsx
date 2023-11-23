@@ -10,8 +10,8 @@ const FooterComponent = () => {
                 <div className='footerSection_logo'>
                     <h1 className='logo'>Film</h1><h1 className='logo-second'>Harbor</h1>
                 </div>
-                <div>
-                    <p className='footerDescription'>simple aplication for my first project<a href='https://github.com/CodeVoyageer'><FontAwesomeIcon icon={faGithub} size="2x"  style={{color: "#ffffff",}}/></a></p>
+                <div className='footerDescription-section'>
+                    <p className='footerDescription'>Simple app for my first project<a href='https://github.com/CodeVoyageer'><FontAwesomeIcon icon={faGithub} size="2x"  style={{color: "#ffffff",}}/></a></p>
                 </div>
             </section>
 

@@ -5,7 +5,7 @@ import './header.scss';
 const Header = () => {
     return (
         <>
-            <div className="headerContainer">
+            <section className="headerContainer">
                 <div className='logo-container'>
                     <p className='logo'>Film</p><p className='logo-second'>Harbor</p>
                 </div>
@@ -19,7 +19,7 @@ const Header = () => {
                         <li>Profile</li>
                     </ul>
                 </nav>
-            </div>
+            </section>
         </>
     );
 };

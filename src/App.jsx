@@ -2,8 +2,11 @@ import React, {useState} from "react";
 import './App.css'
 
 import Header from "./components/header/header.jsx";
-import ResultsComponent from "./components/mainSection1/resultsComponent.jsx";
+import ResultsComponent from "./components/resultsSection/resultsComponent.jsx";
 import SearchInput from "./components/SearchInput/searchInput.jsx";
+import PopularMoviesComponent from "./components/popularMovies/popularMovies.jsx";
+
+
 
 function App() {
     const [searchResults, setSearchResults] = useState([]);
@@ -18,6 +21,7 @@ function App() {
             <Header/>
             <SearchInput onSearchResults={handleSearchResults}/>
             <ResultsComponent searchResults={searchResults}/>
+            <PopularMoviesComponent/>
         </div>
     );
 }

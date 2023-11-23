@@ -1,31 +1,30 @@
-import React, {useState} from "react";
-import './App.css'
 
-import Header from "./components/header/header.jsx";
-import ResultsComponent from "./components/resultsSection/resultsComponent.jsx";
-import SearchInput from "./components/SearchInput/searchInput.jsx";
-import PopularMoviesComponent from "./components/popularMovies/popularMovies.jsx";
-import FooterComponent from "./components/footerComponent/footer.jsx";
+import React, {Component} from 'react';
+import { createRoot } from 'react-dom/client';
+import {
+    HashRouter,
+    Route,
+    Routes,
+    Link,
+    NavLink,
+    Outlet
+} from 'react-router-dom';
+import './App.css'
+import Home from "./pages/Home.jsx";
+
 
 
 
 function App() {
-    const [searchResults, setSearchResults] = useState([]);
-    const handleSearchResults = (results) => {
-        console.log('Received search results in App:', results);
-        setSearchResults(results);
-        console.log('Search results:', results);
-    };
-
     return (
         <div className="app">
-            <Header/>
-            <SearchInput onSearchResults={handleSearchResults}/>
-            <ResultsComponent searchResults={searchResults}/>
-            <PopularMoviesComponent/>
-            <FooterComponent/>
+            <HashRouter>
+                <Routes>
+                <Route path='/' element={<Home />} />
+                </Routes>
+            </HashRouter>
         </div>
     );
 }
 
-export default App
+export default App;

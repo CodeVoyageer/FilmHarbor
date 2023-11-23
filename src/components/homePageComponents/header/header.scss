@@ -19,18 +19,25 @@
       padding: 20px;
       font-size: 18px;
       color: gold;
+      cursor: pointer;
+      text-decoration: none;
+
+      a {
+        text-decoration: none;
+        color: gold;
+      }
     }
-    li:hover{
+    li a:hover{
       color: cyan;
     }
   }
 }
 
-
 .logo-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 
   .logo {
     margin-left: 20px;

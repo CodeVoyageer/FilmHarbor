@@ -11,12 +11,12 @@ const Header = () => {
                 </div>
                 <nav className='navigation'>
                     <ul>
-                        <li>Home</li>
-                        <li>Movies</li>
-                        <li>Series</li>
-                        <li>Mylist</li>
-                        <li>MyCalendar</li>
-                        <li>Profile</li>
+                        <li><a href='/FilmHarborApp/src/pages/Home.jsx'>Home</a></li>
+                        <li><a href='/Movies.jsx'>Movies</a></li>
+                        <li><a>Series</a></li>
+                        <li><a>Mylist</a></li>
+                        {/*<li>MyCalendar</li>*/}
+                        <li><a>Profile</a></li>
                     </ul>
                 </nav>
             </section>

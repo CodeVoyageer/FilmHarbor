@@ -1,8 +1,9 @@
 /* Slider */
 .slick-slider
 {
-  position: relative;
 
+  height: 470px;
+  position: relative;
   display: block;
   box-sizing: border-box;
 
@@ -20,6 +21,7 @@
 
 .slick-list
 {
+  height: 470px;
   position: relative;
 
   display: block;
@@ -119,9 +121,50 @@
 }
 
 .slider-next-button{
-  width: 60px;
-  height: 30px;
-  border: 5px solid red;
+  width: 50px;
+  height: 50px;
+  border: none;
   display: block;
   position: relative;
+  background-color: black;
+  opacity: 0.3;
+  left: 1496px;
+  bottom: 326px;
+  border-radius: 50%;
+}
+  .slider-next-button:hover{
+    opacity: 0.8;
+  }
+
+  .slider-prev-button{
+    width: 50px;
+    height: 50px;
+    border: none;
+    display: block;
+    position: relative;
+    background-color: black;
+    opacity: 0.3;
+    top: 196px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .slider-prev-button:hover{
+    opacity: 0.8;
+  }
+
+.slider-section{
+  background-color: #414141;
+  height: 600px;
+}
+
+.slick-slide{
+  margin-left: 15px;
+}
+.slider-section_headeing{
+  color:gold;
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
 }

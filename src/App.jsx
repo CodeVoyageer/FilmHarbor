@@ -9,8 +9,8 @@ import {
     Outlet
 } from 'react-router-dom';
 import './App.css'
-import Home from "./pages/Home.jsx";
-import MoviesPage from "./pages/Movies.jsx";
+import Home from "./Pages/Home.jsx";
+import MoviesPage from "./Pages/Movies.jsx";
 
 
 function App() {

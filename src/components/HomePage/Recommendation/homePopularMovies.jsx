@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "./popularMovies.scss";
 
-const PopularMoviesComponent = () => {
+import React, {useEffect, useState} from "react";
+import Slider from "react-slick";
+import "./slick.scss";
+import "./slick-theme.scss";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
+import {faChevronLeft} from "@fortawesome/free-solid-svg-icons";
+
+const PopularMoviesComponent = ()=> {
     const [randomMovies, setRandomMovies] = useState([]);
 
     useEffect(() => {
@@ -30,14 +34,25 @@ const PopularMoviesComponent = () => {
 
         fetchRandomMovies();
     }, []);
-
-    return (
-        <section className="popular-movies-section">
-            <h2 className="popular-movies-heading">Najpopularniejsze filmy:</h2>
-            <div className="popular-movies-container">
-                {randomMovies.length > 0 ? (
-                    <Carousel showThumbs={false} showStatus={false} showArrows={true} infiniteLoop={true} emulateTouch={true} swipeable={true} showIndicators={true} centerMode={true}  autoPlay={true} centerSlidePercentage={20} className='custom-carousel'>
-                        {randomMovies.map((item) => (
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 5,
+        slidesToScroll: 2,
+        arrows: false,
+        autoPlay: true
+    };
+    const slider = React.useRef(null);
+    return(
+        <>
+            <section className='slider-section'>
+                <h1 className='slider-section_headeing'>The most popular Series:</h1>
+                <button className='slider-prev-button' onClick={() => slider?.current?.slickPrev()}><FontAwesomeIcon icon={faChevronLeft} size='2x' style={{color: "#ffffff",}}  /></button>
+                <Slider ref={slider} {...settings}>
+                    {randomMovies.length > 0 && randomMovies
+                        .filter((item) => item.overview)
+                        .map((item) => (
                             <div key={item.id} className="data-item">
                                 {item.poster_path && (
                                     <img
@@ -47,31 +62,29 @@ const PopularMoviesComponent = () => {
                                 )}
                                 <div className="film-introduce-container">
                                     <p className="film-introduce">
-                                        <span className="film-introduce_info">Tytuł:</span>{" "}
+                                        <span className="film-introduce_info">Title:</span>{" "}
                                         {item.title}
                                     </p>
                                     <p className="film-introduce">
-                                        <span className="film-introduce_info">Rok:</span>{" "}
+                                        <span className="film-introduce_info">Year:</span>{" "}
                                         {item.release_date}
                                     </p>
                                     <p className="film-introduce">
-                                        <span className="film-introduce_info">Ocena:</span>{" "}
+                                        <span className="film-introduce_info">Rating:</span>{" "}
                                         {item.vote_average}
                                     </p>
                                     <p className="film-introduce">
-                                        <span className="film-introduce_info">Opis:</span>{" "}
+                                        <span className="film-introduce_info">Description:</span>{" "}
                                         {item.overview}
                                     </p>
                                 </div>
                             </div>
                         ))}
-                    </Carousel>
-                ) : (
-                    <p>Brak dostępnych filmów.</p>
-                )}
-            </div>
-        </section>
-    );
-};
 
+                </Slider>
+                <button className='slider-next-button' onClick={() => slider?.current?.slickNext()}><FontAwesomeIcon icon={faChevronRight} size='2x'  style={{color: "#ffffff",}} /></button>
+            </section>
+        </>
+    )
+}
 export default PopularMoviesComponent;

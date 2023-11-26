@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import '../App.css'
 
-import Header from "../components/homePageComponents/header/header.jsx";
-import ResultsComponent from "../components/homePageComponents/resultsSection/resultsComponent.jsx";
-import SearchInput from "../components/homePageComponents/SearchInput/searchInput.jsx";
-import PopularMoviesComponent from "../components/homePageComponents/popularMovies/popularMovies.jsx";
-import FooterComponent from "../components/homePageComponents/footerComponent/footer.jsx";
+import Header from "../components/HomePage/Header/header.jsx";
+import ResultsComponent from "../components/HomePage/ResultsSection/resultsComponent.jsx";
+import SearchInput from "../components/HomePage/SearchInput/searchInput.jsx";
+import PopularMoviesComponent from "../components/HomePage/Recommendation/homePopularMovies.jsx";
+import FooterComponent from "../components/HomePage/Footer/footer.jsx";
+import PopularSeriesSlider from "../components/HomePage/Recommendation/popularSeries.jsx";
 
 
 
@@ -23,6 +24,7 @@ function Home() {
             <SearchInput onSearchResults={handleSearchResults}/>
             <ResultsComponent searchResults={searchResults}/>
             <PopularMoviesComponent/>
+            <PopularSeriesSlider/>
             <FooterComponent/>
         </div>
     );

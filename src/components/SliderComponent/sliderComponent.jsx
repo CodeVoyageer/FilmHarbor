@@ -12,7 +12,7 @@ const SimpleSlider = ()=> {
     useEffect(() => {
         const fetchPopularSeries = async () => {
             const url =
-                "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
+                "https://api.themoviedb.org/3/discover/tv?include_adult=false&language=en-US&page=2&sort_by=popularity.desc";
             const options = {
                 method: "GET",
                 headers: {
@@ -46,10 +46,12 @@ const SimpleSlider = ()=> {
     return(
         <>
             <section className='slider-section'>
-                <h1 className='slider-section_headeing'>The most popular movies:</h1>
+                <h1 className='slider-section_headeing'>The most popular Series:</h1>
         <button className='slider-prev-button' onClick={() => slider?.current?.slickPrev()}><FontAwesomeIcon icon={faChevronLeft} size='2x' style={{color: "#ffffff",}}  /></button>
     <Slider ref={slider} {...settings}>
-        {popularSeries.length > 0 && popularSeries.map((item) => (
+        {popularSeries.length > 0 && popularSeries
+            .filter((item) => item.overview)
+            .map((item) => (
             <div key={item.id} className="data-item">
                 {item.poster_path && (
                     <img
@@ -59,19 +61,19 @@ const SimpleSlider = ()=> {
                 )}
                 <div className="film-introduce-container">
                     <p className="film-introduce">
-                        <span className="film-introduce_info">Tytuł:</span>{" "}
-                        {item.title}
+                        <span className="film-introduce_info">Title:</span>{" "}
+                        {item.name}
                     </p>
                     <p className="film-introduce">
-                        <span className="film-introduce_info">Rok:</span>{" "}
-                        {item.release_date}
+                        <span className="film-introduce_info">Year:</span>{" "}
+                        {item.first_air_date}
                     </p>
                     <p className="film-introduce">
-                        <span className="film-introduce_info">Ocena:</span>{" "}
+                        <span className="film-introduce_info">Rating:</span>{" "}
                         {item.vote_average}
                     </p>
                     <p className="film-introduce">
-                        <span className="film-introduce_info">Opis:</span>{" "}
+                        <span className="film-introduce_info">Description:</span>{" "}
                         {item.overview}
                     </p>
                 </div>

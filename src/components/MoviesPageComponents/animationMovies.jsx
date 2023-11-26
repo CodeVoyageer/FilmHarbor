@@ -7,13 +7,13 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import {faChevronLeft} from "@fortawesome/free-solid-svg-icons";
 
-const PopularActionMoviesList  = ()=> {
-    const [popularActionMovies, setPopularActionMovies] = useState([]);
+const PopularAnimationMoviesList  = ()=> {
+    const [popularAnimationMovies, setPopularAnimationMovies] = useState([]);
 
     useEffect(() => {
-        const fetchPopularActionMovies = async () => {
+        const fetchPopularAnimationMovies = async () => {
             const url = 'https://api.themoviedb.org/3/discover/movie';
-            const genreId = 28;
+            const genreId = 16; //
             const options = {
                 method: 'GET',
                 headers: {
@@ -23,15 +23,16 @@ const PopularActionMoviesList  = ()=> {
             };
 
             try {
+
                 const response = await fetch(`${url}?api_key='c2fce2ac8f1935b83e48ac3f86a8f75c'&sort_by=popularity.desc&with_genres=${genreId}`, options);
                 const result = await response.json();
-                setPopularActionMovies(result.results);
+                setPopularAnimationMovies(result.results);
             } catch (error) {
                 console.error('Błąd podczas pobierania danych:', error);
             }
         };
 
-        fetchPopularActionMovies();
+        fetchPopularAnimationMovies();
     }, []);
     const settings = {
         dots: true,
@@ -46,11 +47,11 @@ const PopularActionMoviesList  = ()=> {
     return(
         <>
             <section className='slider-section'>
-                <h1 className='slider-section_headeing'>Action Movies:</h1>
+                <h1 className='slider-section_headeing'>Animation Movies:</h1>
                 <button className='slider-prev-button' onClick={() => slider?.current?.slickPrev()}><FontAwesomeIcon icon={faChevronLeft} size='2x' style={{color: "#ffffff",}}  /></button>
                 <Slider ref={slider} {...settings}>
-                    {popularActionMovies.length > 0 && popularActionMovies
-                        .filter((item) => item.overview)
+                    {popularAnimationMovies.length > 0 && popularAnimationMovies
+                        .filter((item) => item.overview && item.poster_path)
                         .map((item) => (
                             <div key={item.id} className="data-item">
                                 {item.poster_path && (
@@ -86,4 +87,4 @@ const PopularActionMoviesList  = ()=> {
         </>
     )
 }
-export default PopularActionMoviesList ;
+export default PopularAnimationMoviesList ;

@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import '../App.css'
 
-import Header from "../components/HomePage/Header/header.jsx";
-import ResultsComponent from "../components/HomePage/ResultsSection/resultsComponent.jsx";
-import SearchInput from "../components/HomePage/SearchInput/searchInput.jsx";
-import PopularMoviesComponent from "../components/HomePage/Recommendation/homePopularMovies.jsx";
-import FooterComponent from "../components/HomePage/Footer/footer.jsx";
-import PopularSeriesSlider from "../components/HomePage/Recommendation/popularSeries.jsx";
+import Header from "../Components/HomePage/Header/header.jsx";
+import ResultsComponent from "../Components/HomePage/ResultsSection/resultsComponent.jsx";
+import SearchInput from "../Components/HomePage/SearchInput/searchInput.jsx";
+import PopularMoviesComponent from "../Components/HomePage/Recommendation/homePopularMovies.jsx";
+import FooterComponent from "../Components/HomePage/Footer/footer.jsx";
+import PopularSeriesSlider from "../Components/HomePage/Recommendation/popularSeries.jsx";
 
 
 

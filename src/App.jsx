@@ -11,6 +11,7 @@ import {
 import './App.css'
 import Home from "./Pages/Home.jsx";
 import MoviesPage from "./Pages/Movies.jsx";
+import SeriesPage from "./Pages/Series.jsx";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
                 <Routes>
                     <Route path='/' element={<Home/>}/>
                     <Route path='/Movies' element={<MoviesPage/>}/>
+                    <Route path='/Series' element={<SeriesPage/>}/>
                 </Routes>
             </HashRouter>
         </div>

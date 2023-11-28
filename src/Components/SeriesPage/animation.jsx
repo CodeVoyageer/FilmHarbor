@@ -3,13 +3,13 @@ import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
-const PopularActionSeriesList = () => {
-    const [popularActionSeries, setPopularActionSeries] = useState([]);
+const PopularAnimationSeriesList = () => {
+    const [popularAnimationSeries, setPopularAnimationSeries] = useState([]);
 
     useEffect(() => {
-        const fetchPopularActionSeries = async () => {
+        const fetchPopularAnimationSeries = async () => {
             const url = 'https://api.themoviedb.org/3/discover/tv';
-            const genreId = 10759;
+            const genreId = 16;
             const apiKey = 'c2fce2ac8f1935b83e48ac3f86a8f75c';
             const options = {
                 method: 'GET',
@@ -22,13 +22,13 @@ const PopularActionSeriesList = () => {
             try {
                 const response = await fetch(`${url}?api_key=${apiKey}&sort_by=popularity.desc&with_genres=${genreId}`, options);
                 const result = await response.json();
-                setPopularActionSeries(result.results);
+                setPopularAnimationSeries(result.results);
             } catch (error) {
                 console.error('Błąd podczas pobierania danych:', error);
             }
         };
 
-        fetchPopularActionSeries();
+        fetchPopularAnimationSeries();
     }, []);
 
     const settings = {
@@ -46,12 +46,12 @@ const PopularActionSeriesList = () => {
     return (
         <>
             <section className='slider-section'>
-                <h1 className='slider-section_headeing'>Action and Adventures Series:</h1>
+                <h1 className='slider-section_headeing'>Animation Series:</h1>
                 <button className='slider-prev-button' onClick={() => slider?.current?.slickPrev()}>
                     <FontAwesomeIcon icon={faChevronLeft} size='2x' style={{ color: '#ffffff' }} />
                 </button>
                 <Slider ref={slider} {...settings}>
-                    {popularActionSeries.map((item) => (
+                    {popularAnimationSeries.map((item) => (
                         <div key={item.id} className='data-item'>
                             {item.poster_path && (
                                 <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title} />
@@ -81,4 +81,4 @@ const PopularActionSeriesList = () => {
     );
 };
 
-export default PopularActionSeriesList;
+export default PopularAnimationSeriesList;

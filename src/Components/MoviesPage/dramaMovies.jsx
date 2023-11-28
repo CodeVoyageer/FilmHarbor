@@ -13,7 +13,7 @@ const PopularDramaMoviesList  = ()=> {
     useEffect(() => {
         const fetchPopularDramaMovies = async () => {
             const url = 'https://api.themoviedb.org/3/discover/movie';
-            const genreId = 18; //
+            const genreId = 18;
             const options = {
                 method: 'GET',
                 headers: {

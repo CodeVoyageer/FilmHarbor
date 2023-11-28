@@ -13,7 +13,7 @@ const PopularHorrorMoviesList  = ()=> {
     useEffect(() => {
         const fetchPopularHorrorMovies = async () => {
             const url = 'https://api.themoviedb.org/3/discover/movie';
-            const genreId = 27; //
+            const genreId = 27;
             const options = {
                 method: 'GET',
                 headers: {

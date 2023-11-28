@@ -13,7 +13,7 @@ const PopularAnimationMoviesList  = ()=> {
     useEffect(() => {
         const fetchPopularAnimationMovies = async () => {
             const url = 'https://api.themoviedb.org/3/discover/movie';
-            const genreId = 16; //
+            const genreId = 16;
             const options = {
                 method: 'GET',
                 headers: {

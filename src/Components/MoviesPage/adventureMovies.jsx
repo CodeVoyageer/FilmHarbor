@@ -13,7 +13,7 @@ const PopularAdventureMoviesList  = ()=> {
     useEffect(() => {
         const fetchPopularAdventureMovies = async () => {
             const url = 'https://api.themoviedb.org/3/discover/movie';
-            const genreId = 12; //
+            const genreId = 12;
             const options = {
                 method: 'GET',
                 headers: {

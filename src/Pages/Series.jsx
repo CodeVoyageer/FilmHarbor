@@ -9,6 +9,10 @@ import PopularComedySeriesList from "../Components/SeriesPage/comedy.jsx";
 import PopularCrimeSeriesList from "../Components/SeriesPage/crime.jsx";
 import PopularDocumentarySeriesList from "../Components/SeriesPage/documentary.jsx";
 import PopularDramaSeriesList from "../Components/SeriesPage/drama.jsx";
+import PopularFamilySeriesList from "../Components/SeriesPage/family.jsx";
+import PopularKidsSeriesList from "../Components/SeriesPage/kids.jsx";
+import PopularMysterySeriesList from "../Components/SeriesPage/mystery.jsx";
+import PopularNewsSeriesList from "../Components/SeriesPage/news.jsx";
 
 
 const SeriesPage =() =>{
@@ -22,6 +26,10 @@ const SeriesPage =() =>{
             <PopularCrimeSeriesList/>
             <PopularDocumentarySeriesList/>
             <PopularDramaSeriesList/>
+            <PopularFamilySeriesList/>
+            <PopularKidsSeriesList/>
+            <PopularMysterySeriesList/>
+            <PopularNewsSeriesList/>
 <FooterComponent/>
         </>
     )

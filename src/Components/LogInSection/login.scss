@@ -1,0 +1,88 @@
+
+.login_section {
+  background: rgb(63, 94, 251);
+  background: radial-gradient(circle, rgba(63, 94, 251, 1) 8%, rgba(252, 70, 70, 1) 100%);
+  height: 81vh;
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.login_content {
+  display: flex;
+  flex-direction: column;
+  background-color: #272a38;
+  width: 400px;
+  height: 450px;
+  margin-top:55px;
+
+  &_heading {
+    color: gold;
+    font-size: 26px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  &_input {
+    display: flex;
+    flex-direction: column;
+margin-top: 30px;
+    input {
+      height: 30px;
+      background-color: #303446;
+      border: none;
+      border-top: 1px solid #454d6b;
+      border-bottom: 1px solid #454d6b;
+      color: white;
+      padding:9px 55px;
+
+    }
+    input:focus {
+      outline: none;
+    }
+label{
+  height: 0;
+}
+  }
+}
+.input-icon{
+  position: relative;
+  top: 14px;
+  left: 26px;
+  color: white;
+  opacity: 0.5;
+z-index: 1;
+}
+
+
+.login-button-container{
+height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .login-button{
+    width: 160px;
+    height: 50px;
+    border-radius:40px;
+  border: 3px solid lightcoral;
+    color: lightcoral;
+    background-color: #272a38;
+    cursor: pointer;
+    margin-right: 30px;
+  }
+}
+.login-button:hover{
+  background-color: lightcoral;
+  color: white;
+}
+.login-forgot-link{
+  color: #454d6b;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+

@@ -12,6 +12,7 @@ import './App.css'
 import Home from "./Pages/Home.jsx";
 import MoviesPage from "./Pages/Movies.jsx";
 import SeriesPage from "./Pages/Series.jsx";
+import LogInComponent from "./Pages/logIn.jsx";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                     <Route path='/' element={<Home/>}/>
                     <Route path='/Movies' element={<MoviesPage/>}/>
                     <Route path='/Series' element={<SeriesPage/>}/>
+                    <Route path='/LogIn' element={<LogInComponent/>}/>
                 </Routes>
             </HashRouter>
         </div>

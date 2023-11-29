@@ -13,6 +13,9 @@ import PopularFamilySeriesList from "../Components/SeriesPage/family.jsx";
 import PopularKidsSeriesList from "../Components/SeriesPage/kids.jsx";
 import PopularMysterySeriesList from "../Components/SeriesPage/mystery.jsx";
 import PopularNewsSeriesList from "../Components/SeriesPage/news.jsx";
+import PopularRealitySeriesList from "../Components/SeriesPage/reality.jsx";
+import PopularWarSeriesList from "../Components/SeriesPage/war.jsx";
+
 
 
 const SeriesPage =() =>{
@@ -30,6 +33,8 @@ const SeriesPage =() =>{
             <PopularKidsSeriesList/>
             <PopularMysterySeriesList/>
             <PopularNewsSeriesList/>
+            <PopularRealitySeriesList/>
+            <PopularWarSeriesList/>
 <FooterComponent/>
         </>
     )

@@ -78,6 +78,9 @@ const PopularDramaMoviesList  = ()=> {
                                         {item.overview}
                                     </p>
                                 </div>
+                                <div>
+                                    <button className='addToList'>Add</button>
+                                </div>
                             </div>
                         ))}
 

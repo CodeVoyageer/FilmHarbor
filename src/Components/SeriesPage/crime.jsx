@@ -70,6 +70,9 @@ const PopularCrimeSeriesList = () => {
                                     <span className='film-introduce_info'>Description:</span> {item.overview}
                                 </p>
                             </div>
+                            <div>
+                                <button className='addToList'>Add</button>
+                            </div>
                         </div>
                     ))}
                 </Slider>

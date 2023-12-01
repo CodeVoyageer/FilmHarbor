@@ -6,10 +6,12 @@ import "./slick-theme.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import {faChevronLeft} from "@fortawesome/free-solid-svg-icons";
+import {useMovies} from "../../Context/Context.jsx";
 
 
 const PopularMoviesComponent = ()=> {
     const [randomMovies, setRandomMovies] = useState([]);
+    const { addMovie } = useMovies();
 
     useEffect(() => {
         const fetchRandomMovies = async () => {
@@ -45,10 +47,13 @@ const PopularMoviesComponent = ()=> {
         autoPlay: true
     };
     const slider = React.useRef(null);
+    const handleAddToWatchlist = (movie) => {
+        addMovie(movie);
+    }
     return(
         <>
             <section className='slider-section'>
-                <h1 className='slider-section_headeing'>The most popular Movies:</h1>
+                <h1 className='slider-section_headeing'>The most popular Series:</h1>
                 <button className='slider-prev-button' onClick={() => slider?.current?.slickPrev()}><FontAwesomeIcon icon={faChevronLeft} size='2x' style={{color: "#ffffff",}}  /></button>
                 <Slider ref={slider} {...settings}>
                     {randomMovies.length > 0 && randomMovies
@@ -80,7 +85,8 @@ const PopularMoviesComponent = ()=> {
                                     </p>
                                 </div>
                                 <div>
-                                    <button className='addToList'>Add</button>
+
+                                    <button className='addToList' onClick={() => handleAddToWatchlist(item)}>Add</button>
                                 </div>
                             </div>
                         ))}

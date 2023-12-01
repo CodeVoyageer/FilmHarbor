@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {createRoot} from 'react-dom/client';
+import {MoviesProvider} from "./Components/Context/Context.jsx";
 import {
     HashRouter,
     Route,
@@ -19,6 +19,7 @@ import MyList from "./Pages/myList.jsx";
 function App() {
     return (
         <div className="app">
+            <MoviesProvider>
             <HashRouter>
                 <Routes>
                     <Route path='/' element={<Home/>}/>
@@ -28,6 +29,7 @@ function App() {
                     <Route path='/MyList' element={<MyList/>}/>
                 </Routes>
             </HashRouter>
+            </MoviesProvider>
         </div>
     );
 }

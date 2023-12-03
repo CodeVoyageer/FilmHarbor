@@ -81,9 +81,11 @@ cursor: pointer;
   width: 250px;
   height: auto;
   margin:10px 0 10px 40px;
-  border:2px solid gold;
+  //border:2px solid gold;
   border-radius: 10px;
   overflow: hidden;
+
+
   img{
     overflow: hidden;
     width: 100%;
@@ -152,5 +154,4 @@ cursor: pointer;
 }
 .addToList:hover{
   box-shadow: 5px 8px 68px -6px gold;
-
 }

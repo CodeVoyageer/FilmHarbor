@@ -9,6 +9,10 @@ const moviesReducer = (state, action) => {
             const updatedMovies = [...state, action.payload];
             localStorage.setItem('movies', JSON.stringify(updatedMovies));
             return updatedMovies;
+        case 'REMOVE_MOVIE':
+            const filteredMovies = state.filter(movie => movie.id !== action.payload.id);
+            localStorage.setItem('movies', JSON.stringify(filteredMovies));
+            return filteredMovies;
         default:
             return state;
     }
@@ -25,9 +29,12 @@ export const MoviesProvider = ({ children }) => {
     const addMovie = (movie) => {
         dispatch({ type: 'ADD_MOVIE', payload: movie });
     };
+    const removeMovie = (movie) => {
+        dispatch({ type: 'REMOVE_MOVIE', payload: movie });
+    };
 
     return (
-        <MoviesContext.Provider value={{ movies, addMovie }}>
+        <MoviesContext.Provider value={{ movies, addMovie, removeMovie}}>
             {children}
         </MoviesContext.Provider>
     );

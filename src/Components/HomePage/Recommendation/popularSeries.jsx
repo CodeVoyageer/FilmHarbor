@@ -5,10 +5,10 @@ import "./slick-theme.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import {faChevronLeft} from "@fortawesome/free-solid-svg-icons";
-
+import {useMovies} from "../../Context/Context.jsx";
 const PopularSeriesSlider = ()=> {
     const [popularSeries, setPopularSeries] = useState([]);
-
+    const { addMovie } = useMovies();
     useEffect(() => {
         const fetchPopularSeries = async () => {
             const url =
@@ -43,6 +43,9 @@ const PopularSeriesSlider = ()=> {
         autoPlay: true
     };
     const slider = React.useRef(null);
+    const handleAddToWatchlist = (movie) => {
+        addMovie(movie);
+    }
     return(
         <>
             <section className='slider-section'>
@@ -78,7 +81,7 @@ const PopularSeriesSlider = ()=> {
                                     </p>
                                 </div>
                                 <div>
-                                    <button className='addToList'>Add</button>
+                                    <button className='addToList' onClick={() => handleAddToWatchlist(item)}>Add</button>
                                 </div>
                             </div>
                         ))}

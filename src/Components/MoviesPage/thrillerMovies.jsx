@@ -6,10 +6,11 @@ import "../HomePage/Recommendation/slick-theme.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import {faChevronLeft} from "@fortawesome/free-solid-svg-icons";
+import {useMovies} from "../Context/Context.jsx";
 
 const PopularThrillerMoviesList  = ()=> {
     const [popularThrillerMovies, setPopularThrillerMovies] = useState([]);
-
+    const { addMovie } = useMovies();
     useEffect(() => {
         const fetchPopularThrillerMovies = async () => {
             const url = 'https://api.themoviedb.org/3/discover/movie';
@@ -44,6 +45,9 @@ const PopularThrillerMoviesList  = ()=> {
         autoPlay: true
     };
     const slider = React.useRef(null);
+    const handleAddToWatchlist = (movie) => {
+        addMovie(movie);
+    }
     return(
         <>
             <section className='slider-section'>
@@ -79,7 +83,7 @@ const PopularThrillerMoviesList  = ()=> {
                                     </p>
                                 </div>
                                 <div>
-                                    <button className='addToList'>Add</button>
+                                    <button className='addToList' onClick={()=>handleAddToWatchlist(item)}>Add</button>
                                 </div>
                             </div>
                         ))}

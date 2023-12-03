@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import {useMovies} from "../Context/Context.jsx";
 
 const PopularMysterySeriesList = () => {
     const [popularMysterySeries, setPopularMysterySeries] = useState([]);
-
+    const { addMovie } = useMovies();
     useEffect(() => {
         const fetchPopularMysterySeries = async () => {
             const url = 'https://api.themoviedb.org/3/discover/tv';
@@ -42,7 +43,9 @@ const PopularMysterySeriesList = () => {
     };
 
     const slider = React.useRef(null);
-
+    const handleAddToWatchlist = (movie) => {
+        addMovie(movie);
+    }
     return (
         <>
             <section className='slider-section'>
@@ -71,7 +74,7 @@ const PopularMysterySeriesList = () => {
                                 </p>
                             </div>
                             <div>
-                                <button className='addToList'>Add</button>
+                                <button className='addToList' onClick={()=>handleAddToWatchlist(item)}>Add</button>
                             </div>
                         </div>
                     ))}

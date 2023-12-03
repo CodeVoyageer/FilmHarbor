@@ -53,7 +53,7 @@ const PopularMoviesComponent = ()=> {
     return(
         <>
             <section className='slider-section'>
-                <h1 className='slider-section_headeing'>The most popular Series:</h1>
+                <h1 className='slider-section_headeing'>The most popular Movies:</h1>
                 <button className='slider-prev-button' onClick={() => slider?.current?.slickPrev()}><FontAwesomeIcon icon={faChevronLeft} size='2x' style={{color: "#ffffff",}}  /></button>
                 <Slider ref={slider} {...settings}>
                     {randomMovies.length > 0 && randomMovies

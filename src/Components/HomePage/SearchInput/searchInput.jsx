@@ -2,10 +2,11 @@ import React, {useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 import './searchInput.scss'
+import {useMovies} from "../../Context/Context.jsx";
 const SearchInput = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [results , setResults] = useState([])
-
+    const { addMovie } = useMovies();
     const onChange = e =>{
         e.preventDefault()
 
@@ -32,6 +33,9 @@ const SearchInput = () => {
             })
     }
     const filteredResults = results.filter(item => item.poster_path);
+    const handleAddToWatchlist = (movie) => {
+        addMovie(movie);
+    }
     return (
         <>
             <section className='first-section'>
@@ -52,7 +56,7 @@ const SearchInput = () => {
                                 value={searchTerm}
                                 onChange={onChange}
                             />
-                            {/*<button><FontAwesomeIcon icon={faMagnifyingGlass}/></button>*/}
+                            <button><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
                         </div>
                     </div>
                 </div>
@@ -75,7 +79,7 @@ const SearchInput = () => {
                                     <p className='film-introduce'><span className='film-introduce_info'> Overview: </span> {item.overview}</p>
                                 </div>
                                 <div>
-                                    <button className='addToList'>Add</button>
+                                    <button className='addToList' onClick={()=>handleAddToWatchlist(item)}>Add</button>
                                 </div>
                             </div>
                         ))

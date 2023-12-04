@@ -14,7 +14,7 @@
   background-color: #272a38;
   width: 400px;
   height: 450px;
-  margin-top:55px;
+  margin-top: 55px;
 
   &_heading {
     color: gold;
@@ -29,7 +29,8 @@
   &_input {
     display: flex;
     flex-direction: column;
-margin-top: 30px;
+    margin-top: 30px;
+
     input {
       height: 30px;
       background-color: #303446;
@@ -37,52 +38,90 @@ margin-top: 30px;
       border-top: 1px solid #454d6b;
       border-bottom: 1px solid #454d6b;
       color: white;
-      padding:9px 55px;
+      padding: 9px 55px;
 
     }
+
     input:focus {
       outline: none;
     }
-label{
-  height: 0;
-}
+
+    label {
+      height: 0;
+    }
   }
 }
-.input-icon{
+
+.input-icon {
   position: relative;
   top: 14px;
   left: 26px;
   color: white;
   opacity: 0.5;
-z-index: 1;
+  z-index: 1;
 }
 
 
-.login-button-container{
-height: 200px;
+.login-button-container {
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  .login-button{
+
+  .login-button {
     width: 160px;
     height: 50px;
-    border-radius:40px;
-  border: 3px solid lightcoral;
+    border-radius: 40px;
+    border: 3px solid lightcoral;
     color: lightcoral;
     background-color: #272a38;
     cursor: pointer;
     margin-right: 30px;
   }
 }
-.login-button:hover{
+
+.login-button:hover {
   background-color: lightcoral;
   color: white;
 }
-.login-forgot-link{
+
+.login-forgot-link {
   color: #454d6b;
   text-decoration: underline;
   cursor: pointer;
 }
 
+.logInformation {
+  background-color: #414141;
+  height: 38.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &_text {
+    color: gold;
+    font-size: 32px;
+    padding: 30px;
+  }
+
+  &_button {
+    cursor: pointer;
+    width: 160px;
+    height: 50px;
+    border-radius: 40px;
+    border: 3px solid gold;
+    color: gold;
+    background-color: #272a38;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    font-weight: 600;
+  }
+
+  &_button:hover {
+    background-color: gold;
+    color: black;
+  }
+}
 
 

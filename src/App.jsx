@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {MoviesProvider} from "./Components/Context/Context.jsx";
+import React from 'react';
+import {MoviesProvider,UserProvider} from "./Components/Context/Context.jsx";
 import {
     HashRouter,
     Route,
@@ -14,11 +14,15 @@ import MoviesPage from "./Pages/Movies.jsx";
 import SeriesPage from "./Pages/Series.jsx";
 import LogInComponent from "./Pages/logIn.jsx";
 import MyList from "./Pages/myList.jsx";
+import LogInformation from "./Components/LogInSection/LogInformation.jsx";
+
+
 
 
 function App() {
     return (
         <div className="app">
+            <UserProvider>
             <MoviesProvider>
             <HashRouter>
                 <Routes>
@@ -27,9 +31,11 @@ function App() {
                     <Route path='/Series' element={<SeriesPage/>}/>
                     <Route path='/LogIn' element={<LogInComponent/>}/>
                     <Route path='/MyList' element={<MyList/>}/>
+                    <Route path='/LogIn' element={<LogInformation/>}/>
                 </Routes>
             </HashRouter>
             </MoviesProvider>
+            </UserProvider>
         </div>
     );
 }

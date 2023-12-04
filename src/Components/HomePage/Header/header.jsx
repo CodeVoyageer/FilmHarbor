@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './header.scss';
 import {Link} from "react-router-dom";
+import { useUser} from "../../Context/Context.jsx";
 
 
 const Header = () => {
+    const { user, logout } = useUser();
     return (
         <>
             <section className="headerContainer">
@@ -18,8 +20,8 @@ const Header = () => {
                         <li><Link to='/Movies'>Movies</Link></li>
                         <li><Link to='/Series'>Series</Link></li>
                         <li><Link to='/Mylist'>Mylist</Link></li>
-                        <li><Link to='/LogIn'>Log in</Link></li>
-                        <li><a>Profile</a></li>
+                        {!user && <li><Link to='/LogIn'>Log in</Link></li>}
+                        {user && <li onClick={logout}>Log out</li>}
                     </ul>
                 </nav>
             </section>

@@ -24,20 +24,22 @@
       color: gold;
       cursor: pointer;
       text-decoration: none;
-
-      a {
-        text-decoration: none;
-        color: gold;
-      }
     }
-
-    li a:hover {
+    li:hover{
       color: cyan;
     }
+
   }
   .logo_link{
     text-decoration: none;
   }
+}
+.navigation_link{
+  text-decoration: none;
+  color: gold;
+}
+.navigation_link:hover{
+  color: cyan;
 }
 
 .logo-container {

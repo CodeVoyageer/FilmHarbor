@@ -8,7 +8,7 @@ import {useUser} from "../Components/Context/Context.jsx";
 import LogInSection from "../Components/LogInSection/login.jsx";
 
 const LogInComponent = () => {
-    const {user} = useUser();
+    const {user, login} = useUser();
     const navigate = useNavigate();
 
 
@@ -24,7 +24,7 @@ const LogInComponent = () => {
     return (
         <>
             <Header/>
-            <LogInSection/>
+            <LogInSection onLogin={login}/>
             <FooterComponent/>
         </>
     );

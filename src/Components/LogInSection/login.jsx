@@ -9,13 +9,11 @@ const LogInSection = () => {
 
     const { user, login, logout } = useUser();
     const handleLogin = () => {
-        const username = 'exampleUser';
+        const username = '';
+        localStorage.setItem("loggedInUser", JSON.stringify({ username }));
         login(username);
     };
 
-const handleLogout = () => {
-    logout();
-};
     return (
         <>
             <section className='login_section'>
@@ -33,7 +31,7 @@ const handleLogout = () => {
                         <button className='login-button' onClick={handleLogin}>LOG IN</button>
                         <p className='login-forgot-link'>Forgotten password</p>
                     </div>
-                    {user  && <p>You are logged in!</p>}
+                    {user}
                 </div>
             </section>
         </>

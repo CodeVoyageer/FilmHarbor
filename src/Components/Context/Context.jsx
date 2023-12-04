@@ -7,27 +7,47 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [password, setPassword] = useState('');
+
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem('loggedInUser'));
         if (storedUser) {
             setUser(storedUser);
         }
+        const storedPassword = localStorage.getItem('password');
+        if (storedPassword) {
+            setPassword(storedPassword);
+        }
     }, []);
-    const login = (username) => {
-        const newUser = { username }
-        setUser({username});
-        localStorage.setItem('loggedInUser', JSON.stringify(newUser));
+
+    const login = (enteredPassword) => {
+        if (enteredPassword === password) {
+            const newUser = { username: 'exampleUser' };
+            setUser(newUser);
+            localStorage.setItem('loggedInUser', JSON.stringify(newUser));
+            return true;
+        } else {
+            return false;
+        }
     };
+
     const logout = () => {
         setUser(null);
         localStorage.removeItem('loggedInUser');
     };
+
+    const setNewPassword = (newPassword) => {
+        setPassword(newPassword);
+        localStorage.setItem('password', newPassword);
+    };
+
     return (
-        <UserContext.Provider value={{ user, login, logout }}>
+        <UserContext.Provider value={{ user, login, logout, setNewPassword }}>
             {children}
         </UserContext.Provider>
     );
-}
+};
+
 export const useUser = () => {
     const context = useContext(UserContext);
     if (!context) {

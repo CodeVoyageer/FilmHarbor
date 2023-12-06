@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "./slick.scss";
 import "./slick-theme.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
+import {faChevronRight, faPlus} from "@fortawesome/free-solid-svg-icons";
 import {faChevronLeft} from "@fortawesome/free-solid-svg-icons";
 import {useMovies} from "../../Context/Context.jsx";
 const PopularSeriesSlider = ()=> {
@@ -34,13 +34,42 @@ const PopularSeriesSlider = ()=> {
         fetchPopularSeries();
     }, []);
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 5,
         slidesToScroll: 2,
         arrows: false,
-        autoPlay: true
+        autoplay: true,
+        autoplaySpeed: 5000,
+        responsive: [{
+            breakpoint: 1000,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 2,
+                infinite: true,
+                dots: false,
+            }
+        },
+            {
+                breakpoint: 700,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                }
+            },
+        ]
     };
     const slider = React.useRef(null);
     const handleAddToWatchlist = (movie) => {
@@ -81,7 +110,7 @@ const PopularSeriesSlider = ()=> {
                                     </p>
                                 </div>
                                 <div>
-                                    <button className='addToList' onClick={() => handleAddToWatchlist(item)}>Add</button>
+                                    <button className='addToList' onClick={() => handleAddToWatchlist(item)}><FontAwesomeIcon icon={faPlus}/></button>
                                 </div>
                             </div>
                         ))}

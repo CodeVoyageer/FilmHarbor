@@ -35,3 +35,17 @@ a{
 .logo_link{
   text-decoration: none;
 }
+
+@media only screen and (max-width: 1520px) {
+.footerSection{
+  width: 100vw;
+}
+}
+@media only screen and (max-width: 769px) {
+  .logo{
+    font-size: 25px;
+  }
+  .logo-second{
+    font-size: 25px;
+  }
+}

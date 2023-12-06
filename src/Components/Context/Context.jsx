@@ -8,17 +8,16 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [password, setPassword] = useState('');
-
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem('loggedInUser'));
         if (storedUser) {
             setUser(storedUser);
         }
-        const storedPassword = localStorage.getItem('password');
-        if (storedPassword) {
-            setPassword(storedPassword);
-        }
     }, []);
+
+    const setNewPassword = (newPassword) => {
+        setPassword(newPassword);
+    };
 
     const login = (enteredPassword) => {
         if (enteredPassword === password) {
@@ -36,18 +35,12 @@ export const UserProvider = ({ children }) => {
         localStorage.removeItem('loggedInUser');
     };
 
-    const setNewPassword = (newPassword) => {
-        setPassword(newPassword);
-        localStorage.setItem('password', newPassword);
-    };
-
     return (
         <UserContext.Provider value={{ user, login, logout, setNewPassword }}>
             {children}
         </UserContext.Provider>
     );
-};
-
+}
 export const useUser = () => {
     const context = useContext(UserContext);
     if (!context) {

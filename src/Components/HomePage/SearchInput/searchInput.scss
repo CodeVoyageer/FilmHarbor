@@ -1,4 +1,4 @@
-.first-section{
+.first-section {
   background-image: url("https://xmrjj5.webwave.dev/lib/xmrjj5/unsplash-image-lp5n8oyf.jpg");
   width: 100%;
   height: 600px;
@@ -7,15 +7,18 @@
   background-size: cover;
   background-position: center center;
 }
-.description-container{
+
+.description-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-left: 100px;
   padding-top: 100px;
-  .description_container_logo{
+
+  .description_container_logo {
     display: flex;
   }
+
   .logo {
     margin-left: 20px;
     color: white;
@@ -27,7 +30,8 @@
     font-size: 80px;
   }
 }
-.fistSectionDescription{
+
+.firstSectionDescription {
   width: 500px;
   height: 100px;
   color: white;
@@ -35,84 +39,92 @@
   flex-wrap: wrap;
   margin-top: 15px;
 }
-.search_paragraph{
+
+.search_paragraph {
   color: white;
   font-size: 30px;
   padding-bottom: 10px;
 
 }
+
 .search-bar {
   input {
     height: 2rem;
     width: 22rem;
     border-radius: 3px;
     outline: none;
-    border:none;
+    border: none;
   }
 
-  button {
+  .search-button{
     height: 30px;
     width: 25px;
-    background-color:gold;
+    background-color: gold;
     border: none;
     border-radius: 5px;
     position: relative;
-    right: 30px;
-cursor: pointer;
+    right: 27px;
+    cursor: pointer;
   }
 }
-.search-section{
+
+.search-section {
   padding-right: 200px;
-  padding-top:100px;
+  padding-top: 100px;
 }
 
-.data-list{
+.data-list {
   display: flex;
   flex-wrap: wrap;
 }
-.film-introduce{
+
+.film-introduce {
   display: flex;
   flex-wrap: wrap;
   color: white;
 
 }
-.data-item{
+
+.data-item {
   position: relative;
   width: 250px;
   height: auto;
-  margin:10px 0 10px 40px;
+  margin: 10px 0 10px 40px;
   //border:2px solid gold;
   border-radius: 10px;
   overflow: hidden;
 
 
-  img{
+  img {
     overflow: hidden;
     width: 100%;
-    height: 400px;
+    height: 403px;
     border-radius: 8px;
   }
 }
-.search-results-section{
+
+.search-results-section {
   background-color: #414141;
   width: 100%;
   height: auto;
 }
-.film-introduce_info{
+
+.film-introduce_info {
   color: gold;
   font-size: 17px;
   font-weight: 600;
   letter-spacing: 0.55px;
 }
 
-.data-item:hover{
+.data-item:hover {
   box-shadow: 0 0 15px -2px gold;
-  height: auto  ;
-  .film-introduce-container{
+
+  .film-introduce-container {
     display: block;
   }
 }
-.film-introduce-container{
+
+.film-introduce-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -131,11 +143,12 @@ cursor: pointer;
 .film-introduce {
   margin: 0 10px 0 0;
 }
-.custom-carousel .carousel .slide .film-introduce-container{
+
+.custom-carousel .carousel .slide .film-introduce-container {
   margin: 0;
 }
 
-.addToList{
+.addToList {
   width: 50px;
   height: 30px;
   border: none;
@@ -147,11 +160,94 @@ cursor: pointer;
   display: none;
   cursor: pointer;
   border-radius: 50px;
-
+  opacity: 0.8;
 }
-.data-item:hover .addToList{
+
+.data-item:hover .addToList {
   display: block;
 }
-.addToList:hover{
+
+.addToList:hover {
   box-shadow: 5px 8px 68px -6px gold;
+
+}
+@media only screen and (max-width: 1256px) {
+  .description-container {
+    flex-direction: column;
+  }
+  .search-bar input{
+    width: 18.5rem;
+  }
+  .search-section {
+    padding-right: 0;
+  }
+}
+@media only screen and (max-width: 1160px){
+.data-list{
+  //margin-left:100px;
+}
+}
+
+
+@media only screen and (max-width: 1025px){
+  .film-introduce_info{
+    font-size: 12px;
+  }
+  .film-introduce{
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
+
+@media only screen and (max-width: 601px) {
+  .firstSectionDescription{
+    font-size: 25px;
+    width: 300px;
+  }
+  .description-container{
+    width: 300px;
+  }
+.description-container div{
+  width: 300px;
+}
+  .description-container .logo {
+    font-size: 55px;
+  }
+  .description-container .logo-second{
+    font-size: 55px;
+  }
+}
+@media only screen and (max-width: 610px){
+  .search-bar input{
+    width: 16.5rem;
+  }
+}
+@media only screen and (max-width: 426px){
+  .description-container{
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+  }
+
+
+  .description-container div{
+    width: 200px;
+    margin-right: 80px;
+  }
+  .description-container .logo {
+    font-size: 30px;
+  }
+  .description-container .logo-second{
+    font-size: 30px;
+  }
+  .firstSectionDescription{
+    font-size: 20px;
+    width: 200px;
+  }
+  .search-bar input{
+    width: 12.5rem;
+  }
+  .search-button{
+left: 176px;
+  }
 }

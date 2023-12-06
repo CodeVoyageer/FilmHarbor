@@ -35,13 +35,42 @@ const PopularActionMoviesList  = ()=> {
         fetchPopularActionMovies();
     }, []);
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 5,
         slidesToScroll: 2,
         arrows: false,
-        autoPlay: true
+        autoplay: true,
+        autoplaySpeed: 5000,
+        responsive: [{
+            breakpoint: 1000,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 2,
+                infinite: true,
+                dots: false,
+            }
+        },
+            {
+                breakpoint: 700,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                }
+            },
+        ]
     };
     const slider = React.useRef(null);
     const handleAddToWatchlist = (movie) => {

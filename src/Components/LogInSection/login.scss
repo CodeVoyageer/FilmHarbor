@@ -131,4 +131,18 @@
 .changepassword_Section{
   margin-top: -30px;
 }
-
+@media only screen and (max-width: 426px){
+  .login_content{
+   width: 270px;
+    height: 400px;
+  }
+  .login-button{
+    width: 150px;
+    margin-left: 20px;
+  }
+}
+@media only screen and (max-width: 340px) {
+  .logInformation_text {
+    font-size: 25px;
+  }
+}

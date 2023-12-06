@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
+import {faMagnifyingGlass, faPlus} from "@fortawesome/free-solid-svg-icons";
 import './searchInput.scss'
 import {useMovies} from "../../Context/Context.jsx";
 const SearchInput = () => {
@@ -44,7 +44,7 @@ const SearchInput = () => {
                         <div className='description_container_logo'>
                             <h1 className='logo'>Film</h1><h1 className='logo-second'>Harbor</h1>
                         </div>
-                        <p className='fistSectionDescription'>Twój przewodnik do świata filmów i seriali. Odkrywaj,
+                        <p className='firstSectionDescription'>Twój przewodnik do świata filmów i seriali. Odkrywaj,
                             oglądaj i zapisuj ulubione tytuły na swojej własnej liście!</p>
                     </div>
                     <div className='search-section'>
@@ -56,7 +56,7 @@ const SearchInput = () => {
                                 value={searchTerm}
                                 onChange={onChange}
                             />
-                            <button><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
+                            <button className='search-button'><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@ const SearchInput = () => {
                                     <p className='film-introduce'><span className='film-introduce_info'> Overview: </span> {item.overview}</p>
                                 </div>
                                 <div>
-                                    <button className='addToList' onClick={()=>handleAddToWatchlist(item)}>Add</button>
+                                    <button className='addToList' onClick={()=>handleAddToWatchlist(item)}><FontAwesomeIcon icon={faPlus}/></button>
                                 </div>
                             </div>
                         ))

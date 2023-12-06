@@ -11,6 +11,7 @@
 
   .navigation {
     margin-right: 60px;
+    display: flex;
 
     ul {
       display: flex;
@@ -24,22 +25,25 @@
       color: gold;
       cursor: pointer;
       text-decoration: none;
-    }
-    li:hover{
-      color: cyan;
-    }
 
+      &:hover {
+        color: cyan;
+      }
+    }
   }
-  .logo_link{
+
+  .logo_link {
     text-decoration: none;
   }
 }
-.navigation_link{
+
+.navigation_link {
   text-decoration: none;
   color: gold;
-}
-.navigation_link:hover{
-  color: cyan;
+
+  &:hover {
+    color: cyan;
+  }
 }
 
 .logo-container {
@@ -51,13 +55,53 @@
   .logo {
     margin-left: 20px;
     color: white;
-    font-size: 25px;
+    font-size: 30px;
     text-shadow: 0 1px 3px white;
   }
 
   .logo-second {
     color: gold;
-    font-size: 25px;
+    font-size: 30px;
     text-shadow: 0 1px 3px gold;
+  }
+}
+
+.navHamburger {
+  border: none;
+  background-color: #001421;
+  color: gold;
+  display: none;
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 901px) {
+  .navHamburger {
+    display: block;
+  }
+
+  .navigation {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: -60px;
+    width: 30vw;
+    height: 300px;
+    background-color: #001421;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
+  }
+.navigation ul{
+  flex-direction: column;
+}
+  .navigation.open {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 }

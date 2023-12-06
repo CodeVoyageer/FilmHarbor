@@ -1,7 +1,9 @@
 import React from "react";
 import './myListSection.scss';
 import {useMovies} from "../Context/Context.jsx";
-import '../HomePage/Recommendation/slick.scss'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faTrash} from "@fortawesome/free-solid-svg-icons";
+// import '../HomePage/Recommendation/slick.scss'
 
 const MyListSection = () => {
     const {movies, removeMovie} = useMovies();
@@ -40,7 +42,7 @@ const MyListSection = () => {
                                 </p>
                             </div>
                             <div>
-                                <button className='removeFromList' onClick={() => handleRemoveMovie(movie)}>Remove
+                                <button className='removeFromList' onClick={() => handleRemoveMovie(movie)}><FontAwesomeIcon icon={faTrash}/>
                                 </button>
                             </div>
                         </div>

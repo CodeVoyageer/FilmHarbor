@@ -10,12 +10,14 @@ import PopularThrillerMoviesList from "../Components/MoviesPage/thrillerMovies.j
 import PopularDramaMoviesList from "../Components/MoviesPage/dramaMovies.jsx";
 import PopularRomanticMoviesList from "../Components/MoviesPage/romanticMovies.jsx";
 import HomePopularMovies from "../Components/HomePage/Recommendation/homePopularMovies.jsx";
+import PopularActionMoviesList from "../Components/MoviesPage/actionMovies.jsx";
 
 const MoviesPage = () => {
     return (
         <>
             <Header/>
             <HomePopularMovies/>
+            <PopularActionMoviesList/>
             <PopularAdventureMoviesList/>
             <PopularAnimationMoviesList/>
             <PopularHorrorMoviesList/>

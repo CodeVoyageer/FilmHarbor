@@ -1,6 +1,5 @@
-
-import React, {Component} from 'react';
-import { createRoot } from 'react-dom/client';
+import React from 'react';
+import {MoviesProvider,UserProvider} from "./Components/Context/Context.jsx";
 import {
     HashRouter,
     Route,
@@ -10,7 +9,12 @@ import {
     Outlet
 } from 'react-router-dom';
 import './App.css'
-import Home from "./pages/Home.jsx";
+import Home from "./Pages/Home.jsx";
+import MoviesPage from "./Pages/Movies.jsx";
+import SeriesPage from "./Pages/Series.jsx";
+import LogInComponent from "./Pages/logIn.jsx";
+import MyList from "./Pages/myList.jsx";
+import LogInformation from "./Components/LogInSection/LogInformation.jsx";
 
 
 
@@ -18,11 +22,20 @@ import Home from "./pages/Home.jsx";
 function App() {
     return (
         <div className="app">
+            <UserProvider>
+            <MoviesProvider>
             <HashRouter>
                 <Routes>
-                <Route path='/' element={<Home />} />
+                    <Route path='/' element={<Home/>}/>
+                    <Route path='/Movies' element={<MoviesPage/>}/>
+                    <Route path='/Series' element={<SeriesPage/>}/>
+                    <Route path='/LogIn' element={<LogInComponent/>}/>
+                    <Route path='/MyList' element={<MyList/>}/>
+                    <Route path='/LogIn' element={<LogInformation/>}/>
                 </Routes>
             </HashRouter>
+            </MoviesProvider>
+            </UserProvider>
         </div>
     );
 }

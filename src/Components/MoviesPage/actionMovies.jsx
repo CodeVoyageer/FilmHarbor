@@ -4,13 +4,15 @@ import Slider from "react-slick";
 import "../HomePage/Recommendation/slick.scss"
 import "../HomePage/Recommendation/slick-theme.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
+import {faChevronRight, faPlus} from "@fortawesome/free-solid-svg-icons";
 import {faChevronLeft} from "@fortawesome/free-solid-svg-icons";
-import {useMovies} from "../Context/Context.jsx";
+import {useMovies, useUser} from "../Context/Context.jsx";
 
 const PopularActionMoviesList  = ()=> {
     const [popularActionMovies, setPopularActionMovies] = useState([]);
     const { addMovie } = useMovies();
+    const { user } = useUser();
+
     useEffect(() => {
         const fetchPopularActionMovies = async () => {
             const url = 'https://api.themoviedb.org/3/discover/movie';
@@ -110,9 +112,10 @@ const PopularActionMoviesList  = ()=> {
                                         {item.overview}
                                     </p>
                                 </div>
-                                <div>
-                                    <button className='addToList' onClick={()=>handleAddToWatchlist(item)}>Add</button>
-                                </div>
+                                {user &&(
+                                    <button className='addToList' onClick={() => handleAddToWatchlist(item)}><FontAwesomeIcon icon={faPlus}/>
+                                    </button>
+                                )}
                             </div>
                         ))}
 

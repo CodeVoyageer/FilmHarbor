@@ -2,11 +2,12 @@ import React, {useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMagnifyingGlass, faPlus} from "@fortawesome/free-solid-svg-icons";
 import './searchInput.scss'
-import {useMovies} from "../../Context/Context.jsx";
+import {useMovies, useUser} from "../../Context/Context.jsx";
 const SearchInput = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [results , setResults] = useState([])
     const { addMovie } = useMovies();
+    const { user } = useUser();
     const onChange = e =>{
         e.preventDefault()
 
@@ -78,9 +79,11 @@ const SearchInput = () => {
                                     <p className='film-introduce'><span className='film-introduce_info'>Rating:</span>{item.vote_average}</p>
                                     <p className='film-introduce'><span className='film-introduce_info'> Overview: </span> {item.overview}</p>
                                 </div>
-                                <div>
-                                    <button className='addToList' onClick={()=>handleAddToWatchlist(item)}><FontAwesomeIcon icon={faPlus}/></button>
-                                </div>
+                                {user &&(
+                                    <button className='addToList' onClick={() => handleAddToWatchlist(item)}><FontAwesomeIcon icon={faPlus}/>
+                                    </button>
+                                )}
+
                             </div>
                         ))
                     }

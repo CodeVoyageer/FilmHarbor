@@ -6,11 +6,12 @@ import "../HomePage/Recommendation/slick-theme.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronRight, faPlus} from "@fortawesome/free-solid-svg-icons";
 import {faChevronLeft} from "@fortawesome/free-solid-svg-icons";
-import {useMovies} from "../Context/Context.jsx";
+import {useMovies, useUser} from "../Context/Context.jsx";
 
 const PopularAdventureMoviesList  = ()=> {
     const [popularAdventureMovies, setPopularAdventureMovies] = useState([]);
     const { addMovie } = useMovies();
+    const { user } = useUser();
     useEffect(() => {
         const fetchPopularAdventureMovies = async () => {
             const url = 'https://api.themoviedb.org/3/discover/movie';
@@ -111,9 +112,10 @@ const PopularAdventureMoviesList  = ()=> {
                                         {item.overview}
                                     </p>
                                 </div>
-                                <div>
-                                    <button className='addToList' onClick={()=>handleAddToWatchlist(item)}><FontAwesomeIcon icon={faPlus}/></button>
-                                </div>
+                                {user &&(
+                                    <button className='addToList' onClick={() => handleAddToWatchlist(item)}><FontAwesomeIcon icon={faPlus}/>
+                                    </button>
+                                )}
                             </div>
                         ))}
 

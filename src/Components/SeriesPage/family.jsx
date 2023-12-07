@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronRight, faChevronLeft, faPlus} from '@fortawesome/free-solid-svg-icons';
-import {useMovies} from "../Context/Context.jsx";
+import {useMovies, useUser} from "../Context/Context.jsx";
 
 const PopularFamilySeriesList = () => {
     const [popularFamilySeries, setPopularFamilySeries] = useState([]);
     const { addMovie } = useMovies();
+    const { user } = useUser();
     useEffect(() => {
         const fetchPopularFamilySeries = async () => {
             const url = 'https://api.themoviedb.org/3/discover/tv';
@@ -102,9 +103,11 @@ const PopularFamilySeriesList = () => {
                                     <span className='film-introduce_info'>Description:</span> {item.overview}
                                 </p>
                             </div>
-                            <div>
-                                <button className='addToList' onClick={()=>handleAddToWatchlist(item)}><FontAwesomeIcon icon={faPlus}/></button>
-                            </div>
+                            {user &&(
+                                <button className='addToList' onClick={() => handleAddToWatchlist(item)}><FontAwesomeIcon icon={faPlus}/>
+                                </button>
+                            )}
+
                         </div>
                     ))}
                 </Slider>

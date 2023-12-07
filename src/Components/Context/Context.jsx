@@ -1,23 +1,19 @@
 
-import React, { createContext, useContext, useReducer, useEffect, useState} from 'react';
+import React, { createContext, useContext, useReducer, useEffect,useState } from 'react';
 
 const MoviesContext = createContext();
 const UserContext = createContext();
 
-
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [password, setPassword] = useState('');
+
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem('loggedInUser'));
         if (storedUser) {
             setUser(storedUser);
         }
     }, []);
-
-    const setNewPassword = (newPassword) => {
-        setPassword(newPassword);
-    };
 
     const login = (enteredPassword) => {
         if (enteredPassword === password) {
@@ -30,17 +26,34 @@ export const UserProvider = ({ children }) => {
         }
     };
 
+    const autoLogin = () => {
+        const storedUser = JSON.parse(localStorage.getItem('loggedInUser'));
+        if (storedUser) {
+            setUser(storedUser);
+        }
+    };
+
     const logout = () => {
         setUser(null);
         localStorage.removeItem('loggedInUser');
     };
+
+    const setNewPassword = (newPassword) => {
+        setPassword(newPassword);
+    };
+
+
+    useEffect(() => {
+        autoLogin();
+    }, []);
 
     return (
         <UserContext.Provider value={{ user, login, logout, setNewPassword }}>
             {children}
         </UserContext.Provider>
     );
-}
+};
+
 export const useUser = () => {
     const context = useContext(UserContext);
     if (!context) {
@@ -48,7 +61,6 @@ export const useUser = () => {
     }
     return context;
 };
-
 const moviesReducer = (state, action) => {
     switch (action.type) {
         case 'ADD_MOVIE':

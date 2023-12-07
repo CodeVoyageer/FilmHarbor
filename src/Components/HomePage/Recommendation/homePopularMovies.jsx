@@ -6,12 +6,14 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import {faChevronLeft} from "@fortawesome/free-solid-svg-icons";
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
-import {useMovies} from "../../Context/Context.jsx";
+import {useMovies, useUser} from "../../Context/Context.jsx";
 
 
 const PopularMoviesComponent = () => {
     const [randomMovies, setRandomMovies] = useState([]);
     const {addMovie} = useMovies();
+    const { user } = useUser();
+
 
     useEffect(() => {
         const fetchRandomMovies = async () => {
@@ -115,9 +117,10 @@ const PopularMoviesComponent = () => {
                                     </p>
                                 </div>
                                 <div>
-
+                                    {user &&(
                                     <button className='addToList' onClick={() => handleAddToWatchlist(item)}><FontAwesomeIcon icon={faPlus}/>
                                     </button>
+                                    )}
                                 </div>
                             </div>
                         ))}

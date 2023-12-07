@@ -45,15 +45,14 @@ const SearchInput = () => {
                         <div className='description_container_logo'>
                             <h1 className='logo'>Film</h1><h1 className='logo-second'>Harbor</h1>
                         </div>
-                        <p className='firstSectionDescription'>Twój przewodnik do świata filmów i seriali. Odkrywaj,
-                            oglądaj i zapisuj ulubione tytuły na swojej własnej liście!</p>
+                        <p className='firstSectionDescription'>Your guide to the world of movies and TV shows. Discover, watch, and save your favorite titles on your own list!"</p>
                     </div>
                     <div className='search-section'>
-                        <p className='search_paragraph'>Wyszukaj film dla siebie</p>
+                        <p className='search_paragraph'>Find a movie for yourself</p>
                         <div className="search-bar">
                             <input
                                 type="text"
-                                placeholder="Wyszukaj swój film"
+                                placeholder="Find a movie"
                                 value={searchTerm}
                                 onChange={onChange}
                             />

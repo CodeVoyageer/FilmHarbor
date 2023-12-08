@@ -183,12 +183,12 @@
   .slider-next-button{
     width: 45px;
 height: 45px;
-    bottom: 190px;
+    bottom: 150px;
   }
   .slider-prev-button{
     width: 45px;
     height: 45px;
-    top: 165px;
+    top: 205px;
   }
   .slick-slider{
     height: 350px;
@@ -201,6 +201,15 @@ height: 45px;
   }
   .slick-list{
     height: 350px;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .slider-next-button{
+    bottom: 150px;
+  }
+  .slider-prev-button{
+    top: 205px;
   }
 }
 @media only screen and (max-width: 426px){

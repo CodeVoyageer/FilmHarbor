@@ -17,7 +17,7 @@ export const UserProvider = ({ children }) => {
 
     const login = (enteredPassword) => {
         if (enteredPassword === password) {
-            const newUser = { username: 'exampleUser' };
+            const newUser = { username: '' };
             setUser(newUser);
             localStorage.setItem('loggedInUser', JSON.stringify(newUser));
             return true;
@@ -26,12 +26,6 @@ export const UserProvider = ({ children }) => {
         }
     };
 
-    const autoLogin = () => {
-        const storedUser = JSON.parse(localStorage.getItem('loggedInUser'));
-        if (storedUser) {
-            setUser(storedUser);
-        }
-    };
 
     const logout = () => {
         setUser(null);
@@ -41,11 +35,6 @@ export const UserProvider = ({ children }) => {
     const setNewPassword = (newPassword) => {
         setPassword(newPassword);
     };
-
-
-    useEffect(() => {
-        autoLogin();
-    }, []);
 
     return (
         <UserContext.Provider value={{ user, login, logout, setNewPassword }}>

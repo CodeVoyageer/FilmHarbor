@@ -3,7 +3,7 @@ import './myListSection.scss';
 import {useMovies} from "../Context/Context.jsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTrash} from "@fortawesome/free-solid-svg-icons";
-// import '../HomePage/Recommendation/slick.scss'
+
 
 const MyListSection = () => {
     const {movies, removeMovie} = useMovies();

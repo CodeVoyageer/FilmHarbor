@@ -9,9 +9,7 @@ import LogInformation from "../Components/LogInSection/LogInformation.jsx";
 const MyList = () =>{
     const [watchlist, setWatchlist] = useState([]);
     const { user } = useUser();
-    const addToWatchMovies = (item) =>{
-        setWatchlist(prevWatchlist =>[...prevWatchlist , item])
-    }
+
     return(
         <>
             <Header/>

@@ -26,7 +26,7 @@ const PopularFamilySeriesList = () => {
                 const result = await response.json();
                 setPopularFamilySeries(result.results);
             } catch (error) {
-                console.error('Błąd podczas pobierania danych:', error);
+                console.error('Error while fetching data:', error);
             }
         };
 

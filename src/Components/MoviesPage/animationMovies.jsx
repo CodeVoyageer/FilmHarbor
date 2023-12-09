@@ -30,7 +30,7 @@ const PopularAnimationMoviesList  = ()=> {
                 const result = await response.json();
                 setPopularAnimationMovies(result.results);
             } catch (error) {
-                console.error('Błąd podczas pobierania danych:', error);
+                console.error('Error while fetching data:', error);
             }
         };
 

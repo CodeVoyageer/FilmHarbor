@@ -4,11 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import { useUser } from "../Context/Context.jsx";
 import ChangePassword from "./ChangePassword";
+import RegistrationForm from "./registrationForm.jsx";
 
-const LogInSection = ({ onLogin, loginError }) => {
+const LogInSection = ({ onLogin, loginError}) => {
     const [enteredPassword, setEnteredPassword] = useState("");
     const [isChangePasswordVisible, setChangePasswordVisible] = useState(false);
     const [isLoginFormVisible, setLoginFormVisible] = useState(true);
+    const [isRegisterFormVisible, setRegisterFormVisible] = useState(false);
     const { user, setUser } = useUser();
 
 
@@ -16,7 +18,6 @@ const LogInSection = ({ onLogin, loginError }) => {
         e.preventDefault();
         onLogin(enteredPassword);
     };
-
     const handleShowChangePassword = () => {
         setLoginFormVisible(false);
         setChangePasswordVisible(true);
@@ -26,6 +27,11 @@ const LogInSection = ({ onLogin, loginError }) => {
         setLoginFormVisible(true);
         setChangePasswordVisible(false);
     };
+    const handleCancelRegistrationForm = () => {
+        setLoginFormVisible(true);
+        setRegisterFormVisible(false);
+    };
+
 
     const handleChangePassword = (newPassword) => {
         setEnteredPassword(newPassword);
@@ -38,8 +44,20 @@ const LogInSection = ({ onLogin, loginError }) => {
     };
 
 
+const handleShowRegistrationForm = ()=>{
+    setLoginFormVisible(false);
+    setRegisterFormVisible(true);
+}
+
     return (
         <>
+            {isRegisterFormVisible && (
+                <RegistrationForm onCancel={handleCancelRegistrationForm}/>
+            )}
+            {isChangePasswordVisible && (
+                <ChangePassword onCancel={handleCancelChangePassword} onPasswordChange={handleChangePassword} />
+            )}
+            {isLoginFormVisible && (
             <section className='login_section'>
                 <div className='login_content'>
                     <h1 className='login_content_heading'>Login to your account</h1>
@@ -66,20 +84,17 @@ const LogInSection = ({ onLogin, loginError }) => {
                                 required
                                 onChange={(e) => setEnteredPassword(e.target.value)}
                             />
-                            {isChangePasswordVisible && (
-                                <ChangePassword onCancel={handleCancelChangePassword} onPasswordChange={handleChangePassword} />
-                            )}
                         </div>
-                        {isLoginFormVisible && (
                         <div className='login-button-container'>
                             <button className='login-button' type="submit">LOG IN</button>
+                            <button className='login-button' type='button' onClick={handleShowRegistrationForm}>REGISTER</button>
                             <p className='login-forgot-link' onClick={handleShowChangePassword}>Forgotten password</p>
                         </div>
-                            )}
                     </form>
                     {loginError && <p className="login-error">Incorrect password. Please try again.</p>}
                 </div>
             </section>
+            )}
         </>
     );
 };

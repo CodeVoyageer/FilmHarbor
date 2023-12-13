@@ -76,7 +76,8 @@
     color: lightcoral;
     background-color: #272a38;
     cursor: pointer;
-    margin-right: 30px;
+    margin-right: 20px;
+    margin-left: 10px;
   }
 }
 
@@ -138,7 +139,14 @@
   }
   .login-button{
     width: 150px;
-    margin-left: 20px;
+    margin-left: 0;
+    margin-right:0;
+
+  }
+  .login-forgot-link {
+    position: absolute;
+   bottom: 100px;
+    right: 130px;
   }
 }
 @media only screen and (max-width: 340px) {

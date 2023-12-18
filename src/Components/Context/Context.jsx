@@ -9,7 +9,6 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(supabase.auth.getUser());
-
     const register = async (email, password) => {
         const { user, error } = await supabase.auth.signUp({ email, password });
         if (error) throw error;

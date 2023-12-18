@@ -46,7 +46,7 @@ const MyListSection = () => {
                                 </button>
                             </div>
                         </div>
-                    ))};
+                    ))}
                 </div>
             </section>
         </>

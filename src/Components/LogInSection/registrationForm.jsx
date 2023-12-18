@@ -1,30 +1,21 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock, faUser } from "@fortawesome/free-solid-svg-icons";
-import { supabase } from "./supabase";
+import { useUser } from "../Context/Context.jsx"; // Import the useUser hook from your context
 import "./login.scss";
 
-const RegistrationForm = ({ onRegistration, onCancel }) => {
+const RegistrationForm = ({ onCancel }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const { register } = useUser(); // Use the register function from your context
 
     const handleRegistration = async (e) => {
         e.preventDefault();
         onCancel();
 
         try {
-            const { user, error } = await supabase.auth.signUp({
-                email,
-                password,
-            });
-
-            if (error) {
-                console.error("Błąd rejestracji:", error);
-                alert("Wystąpił błąd rejestracji. Spróbuj ponownie.");
-            } else {
-                alert("Rejestracja zakończona pomyślnie!");
-                onRegistration(email, password);
-            }
+            await register(email, password);
+            alert("Rejestracja zakończona pomyślnie!");
         } catch (error) {
             console.error("Błąd rejestracji:", error);
             alert("Wystąpił błąd rejestracji. Spróbuj ponownie.");
@@ -39,11 +30,7 @@ const RegistrationForm = ({ onRegistration, onCancel }) => {
                     <form onSubmit={handleRegistration}>
                         <div className="login_content_input">
                             <label htmlFor="email">
-                                <FontAwesomeIcon
-                                    className="input-icon"
-                                    icon={faUser}
-                                    size="lg"
-                                />
+                                <FontAwesomeIcon className="input-icon" icon={faUser} size="lg" />
                             </label>
                             <input
                                 placeholder="Email"
@@ -55,11 +42,7 @@ const RegistrationForm = ({ onRegistration, onCancel }) => {
                                 required
                             />
                             <label htmlFor="password">
-                                <FontAwesomeIcon
-                                    className="input-icon"
-                                    icon={faLock}
-                                    size="lg"
-                                />
+                                <FontAwesomeIcon className="input-icon" icon={faLock} size="lg" />
                             </label>
                             <input
                                 placeholder="Password"
@@ -75,7 +58,9 @@ const RegistrationForm = ({ onRegistration, onCancel }) => {
                             <button className="login-button" type="submit">
                                 REGISTER
                             </button>
-                            <button className='login-button' onClick={onCancel}>Cancel</button>
+                            <button className="login-button" onClick={onCancel}>
+                                Cancel
+                            </button>
                         </div>
                     </form>
                 </div>

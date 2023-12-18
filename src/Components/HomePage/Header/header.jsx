@@ -44,14 +44,17 @@ const Header = () => {
                                 Mylist
                             </Link>
                         </li>
-                        {!user && (
+                        {user ? (
+                            <li onClick={logout} className="navigation_link">
+                                Log out
+                            </li>
+                        ) : (
                             <li>
-                                <Link to='/LogIn' className='navigation_link'>
+                                <Link to="/LogIn" className="navigation_link">
                                     Log in
                                 </Link>
                             </li>
                         )}
-                        {user && <li onClick={logout} className='navigation_link'>Log out</li>}
                     </ul>
                 </nav>
                 <button className='navHamburger' onClick={toggleNav}>

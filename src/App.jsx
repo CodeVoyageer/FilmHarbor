@@ -1,5 +1,5 @@
 import React from 'react';
-import {MoviesProvider,UserProvider} from "./Components/Context/Context.jsx";
+import {MoviesProvider,AuthProvider} from "./Components/Context/Context.jsx";
 import {
     HashRouter,
     Route,
@@ -22,7 +22,7 @@ import LogInformation from "./Components/LogInSection/LogInformation.jsx";
 function App() {
     return (
         <div className="app">
-            <UserProvider>
+            <AuthProvider>
             <MoviesProvider>
             <HashRouter>
                 <Routes>
@@ -35,7 +35,7 @@ function App() {
                 </Routes>
             </HashRouter>
             </MoviesProvider>
-            </UserProvider>
+            </AuthProvider>
         </div>
     );
 }

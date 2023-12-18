@@ -1,55 +1,51 @@
-
+import { createClient } from "@supabase/supabase-js"
 import React, { createContext, useContext, useReducer, useEffect,useState } from 'react';
-
 const MoviesContext = createContext();
-const UserContext = createContext();
+const supabaseUrl = "https://tmjiqmfknjjmvayqgwxt.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtamlxbWZrbmpqbXZheXFnd3h0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDI0NzY0MTEsImV4cCI6MjAxODA1MjQxMX0.nNIfIoTGZuSg0APdgDIRYBAxkpPNhlXXf2a-7O50Sd8";
+const supabase = createClient(supabaseUrl, supabaseKey);
 
-export const UserProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
-    const [password, setPassword] = useState('');
+const AuthContext = createContext();
+
+export const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(supabase.auth.getUser());
+
+    const register = async (email, password) => {
+        const { user, error } = await supabase.auth.signUp({ email, password });
+        if (error) throw error;
+        setUser(user);
+    };
+
+    const login = async (email, password) => {
+        console.log(email, password)
+        const { user, error } = await supabase.auth.signInWithPassword({ email, password });
+        if (error) throw error;
+        setUser(user);
+    };
+
+    const logout = async () => {
+        await supabase.auth.signOut();
+        setUser(null);
+    };
 
     useEffect(() => {
-        const storedUser = JSON.parse(localStorage.getItem('loggedInUser'));
-        if (storedUser) {
-            setUser(storedUser);
-        }
+        const authListener = supabase.auth.onAuthStateChange((event, session) => {
+            setUser(session?.user ?? null);
+        });
+        return authListener.data.unsubscribe;
     }, []);
 
-    const login = (enteredPassword) => {
-        if (enteredPassword === password) {
-            const newUser = { username: '' };
-            setUser(newUser);
-            localStorage.setItem('loggedInUser', JSON.stringify(newUser));
-            return true;
-        } else {
-            return false;
-        }
-    };
-
-
-    const logout = () => {
-        setUser(null);
-        localStorage.removeItem('loggedInUser');
-    };
-
-    const setNewPassword = (newPassword) => {
-        setPassword(newPassword);
-    };
-
     return (
-        <UserContext.Provider value={{ user, login, logout, setNewPassword }}>
+        <AuthContext.Provider value={{ user, register, login, logout }}>
             {children}
-        </UserContext.Provider>
+        </AuthContext.Provider>
     );
 };
 
 export const useUser = () => {
-    const context = useContext(UserContext);
-    if (!context) {
-        throw new Error('useUser must be used within a UserProvider');
-    }
-    return context;
+    return useContext(AuthContext);
 };
+
 const moviesReducer = (state, action) => {
     switch (action.type) {
         case 'ADD_MOVIE':

@@ -3,7 +3,7 @@ import './login.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import { useUser } from "../Context/Context.jsx";
-import RegistrationForm from "./RegistrationForm.jsx";
+import RegistrationForm from "./registrationForm.jsx";
 
 
 

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock, faUser } from "@fortawesome/free-solid-svg-icons";
-import { useUser } from "../Context/Context.jsx"; // Import the useUser hook from your context
+import { useUser } from "../Context/Context.jsx";
 import "./login.scss";
 
 const RegistrationForm = ({ onCancel }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const { register } = useUser(); // Use the register function from your context
+    const { register } = useUser();
 
     const handleRegistration = async (e) => {
         e.preventDefault();

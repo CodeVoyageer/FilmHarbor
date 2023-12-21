@@ -18,6 +18,7 @@ const LogInSection = ({ onLogin }) => {
         e.preventDefault()
         try {
             const loginResult = await login(e.target.email.value, enteredPassword);
+            window.location.reload();
             if (loginResult?.error) {
                 console.error("Login error:", loginResult.error);
                 setLoginError(true);
@@ -28,7 +29,7 @@ const LogInSection = ({ onLogin }) => {
             console.error("Login error:", error);
             setLoginError(true);
         }
-        window.location.reload();
+
     };
 
     const handleCancelRegistrationForm = () => {

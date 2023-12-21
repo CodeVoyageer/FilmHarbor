@@ -15,10 +15,10 @@ const RegistrationForm = ({ onCancel }) => {
 
         try {
             await register(email, password);
-            alert("Rejestracja zakończona pomyślnie!");
+            alert("Registration successfully completed!");
         } catch (error) {
-            console.error("Błąd rejestracji:", error);
-            alert("Wystąpił błąd rejestracji. Spróbuj ponownie.");
+            console.error("Registration error:", error);
+            alert("A registration error has occurred. Please try again.");
         }
     };
 
